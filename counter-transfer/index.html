@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.1.0.js"></script> -->
   <title>Counter</title>
   <style>
     div {
@@ -17,12 +17,34 @@
     }
   </style>
 </head>
-<body>
-  <div class="counter1">
+<body id="target">
+  <div class="counter1" >
     10
   </div>
-  <div class="counter2">
+  <div class="counter2" >
     10
   </div>
+  <script>
+  var target1 = document.querySelector('.counter1')
+  var target2 = document.querySelector('.counter2')
+  var result1 = Number(target1.textContent)
+  var result2 = Number(target2.textContent)
+
+document.getElementById('target').addEventListener('click', myFunc)
+    function myFunc(e) {
+      if (target1 === e.target) {
+        result1 = result1 + 1
+        target1.textContent = result1
+        result2 = result2 - 1
+        target2.textContent = result2
+      }
+      if (target2 === e.target) {
+        result2 = result2 + 1
+        target2.textContent = result2
+        result1 = result1 - 1
+        target1.textContent = result1
+      }
+    }
+  </script>
 </body>
 </html>
